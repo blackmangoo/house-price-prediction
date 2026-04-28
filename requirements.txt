@@ -1,0 +1,26 @@
+# =============================================
+# House Price Prediction - Dependencies
+# =============================================
+
+# Data handling
+pandas==2.2.3
+numpy==1.26.4
+
+# Machine Learning
+scikit-learn==1.6.1
+xgboost==2.1.3
+lightgbm==4.5.0
+
+# Visualization
+matplotlib==3.9.4
+seaborn==0.13.2
+plotly==5.24.1
+
+# Streamlit UI
+streamlit==1.41.1
+
+# Model persistence
+joblib==1.4.2
+
+# Docker support
+gunicorn==23.0.0
