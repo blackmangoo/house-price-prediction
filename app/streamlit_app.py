@@ -19,20 +19,15 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
-    /* Global Typography & Background */
+    /* Global Typography */
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
-    }
-    
-    .stApp {
-        background-color: #fbfbfd;
-        color: #1d1d1f;
     }
     
     /* Elegant Serif Headers */
     h1, h2, h3 {
         font-family: 'Playfair Display', serif;
-        color: #0f172a;
+        color: #f8fafc;
     }
 
     /* Premium Header */
@@ -43,11 +38,11 @@ st.markdown("""
     .premium-header h1 {
         font-size: 3.5rem;
         margin-bottom: 0px;
-        color: #0f172a;
+        color: #ffffff;
     }
     .premium-header p {
         font-size: 1.2rem;
-        color: #64748b;
+        color: #94a3b8;
         font-weight: 300;
         margin-top: -10px;
     }
@@ -89,27 +84,21 @@ st.markdown("""
         margin: 10px 0;
     }
 
-    /* Sidebar */
-    [data-testid="stSidebar"] {
-        background-color: #ffffff;
-        border-right: 1px solid #e2e8f0;
-    }
-
     /* Button */
     .stButton>button {
-        background-color: #0f172a;
+        background: linear-gradient(to right, #d4af37, #b8860b);
         color: white;
         border-radius: 8px;
         padding: 12px 24px;
-        font-weight: 500;
+        font-weight: 600;
         border: none;
         width: 100%;
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background-color: #1e293b;
-        box-shadow: 0 4px 12px rgba(15,23,42,0.2);
-        color: white;
+        background: linear-gradient(to right, #fdf4cd, #d4af37);
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        color: #0f172a;
     }
 </style>
 """, unsafe_allow_html=True)
