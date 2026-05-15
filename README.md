@@ -93,7 +93,9 @@ The model was evaluated on a 20% holdout set:
 | R² | 0.79 |
 
 ### 📸 Screenshots
-<!-- Add screenshots of your Streamlit app and key plots here -->
+<p align="center">
+  <img src="ss/ss.png" alt="Luxe Estate Dashboard" width="800">
+</p>
 
 ## 🔗 Links
 
