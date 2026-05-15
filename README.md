@@ -57,107 +57,47 @@ house-price-prediction/
 
 ## 🚀 Step-by-Step Implementation Guide
 
-### Step 1: Setup Environment
+### Step 1: Big Data Model Training (Google Colab)
+To handle large-scale datasets, we utilize Google Colab for training:
+1. Open `notebooks/Colab_BigData_Training.ipynb` in Google Colab.
+2. The notebook automatically fetches the California Housing Dataset and artificially scales it to **over 1 Million rows** to test memory optimization and processing limits.
+3. It performs memory downcasting, feature scaling, and trains an optimized **XGBoost Regressor** (`tree_method='hist'`).
+4. The notebook automatically downloads the trained pipeline as `xgboost_house_model.pkl`.
+
+### Step 2: Setup Local Environment
+Move the downloaded `xgboost_house_model.pkl` file into the `models/` directory of this project.
+
 ```bash
 conda create -n house-price python=3.11 -y
 conda activate house-price
 pip install -r requirements.txt
 ```
 
-### Step 2: Get the Dataset
-- Download from [Kaggle - House Prices](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
-- Place `train.csv` and `test.csv` in `data/` folder
-
-### Step 3: Data Loading & Cleaning (`src/data_loader.py`)
-- Load the dataset
-- Analyze missing values (which columns, how many)
-- Strategy for missing data:
-  - Numerical: fill with median
-  - Categorical: fill with mode or "None"
-- Identify and handle outliers
-
-### Step 4: Feature Engineering (`src/feature_engineering.py`)
-- Create new features:
-  - Total square footage (basement + ground + upper)
-  - Total bathrooms
-  - House age (current year - year built)
-  - Remodel age (current year - year remodeled)
-  - Has pool / Has garage (binary)
-- Encode categorical variables:
-  - Ordinal encoding for quality features (Ex, Gd, TA, Fa, Po)
-  - One-hot encoding for nominal features
-- Feature selection:
-  - Correlation analysis with target
-  - Remove highly correlated features (multicollinearity)
-- Scale numerical features (for linear models only)
-
-### Step 5: Model Training (`src/model.py`)
-- Split data (80/20)
-- Train multiple models:
-  1. Linear Regression (baseline)
-  2. Ridge Regression
-  3. Lasso Regression
-  4. Random Forest Regressor
-  5. XGBoost Regressor
-  6. LightGBM Regressor
-- Evaluate each: MAE, RMSE, R²
-- Cross-validation (5-fold) for robust comparison
-- Hyperparameter tuning for the best model
-
-### Step 6: Analysis & Visualization (`src/visualize.py`)
-- Actual vs Predicted scatter plot
-- Residual plots (residuals vs predicted, residuals distribution)
-- Feature importance (top 20 features)
-- Price distribution histogram
-- Correlation heatmap (top features)
-- Model comparison chart
-- Learning curves (train vs validation error)
-
-### Step 7: Jupyter Notebook
-- Full pipeline with explanations
-- Feature engineering reasoning
-- Model selection justification
-- Error analysis — where does the model fail?
-
-### Step 8: Streamlit App (`app/streamlit_app.py`)
-- Property details input form (sliders, dropdowns)
-- Price prediction display
-- Comparable properties chart
-- Feature importance for this prediction
-- Clean real-estate themed UI
-
-### Step 9: Docker
+### Step 3: Streamlit Dashboard (`app/streamlit_app.py`)
+Run the premium real-estate dashboard locally:
 ```bash
-docker build -t house-price .
-docker run -p 8501:8501 house-price
+python -m streamlit run app/streamlit_app.py
 ```
-
-## 🎯 Extra Challenges (Bonus Learning)
-
-- [ ] Implement stacking ensemble (combine multiple models)
-- [ ] Log-transform the target variable (prices are often skewed)
-- [ ] Add geospatial visualization if location data available
-- [ ] Create a model interpretability report
-- [ ] Compare performance with and without feature engineering
+- The dashboard features a "Luxe Estate" premium design.
+- Input demographics, property specs, and geospatial coordinates.
+- Get instant, AI-driven property valuation based on the 1M+ row XGBoost model.
 
 ## 📊 Results
 
-### Model Performance
-| Model | MAE | RMSE | R² |
-|-------|-----|------|-----|
-| Linear Regression | - | - | - |
-| Ridge | - | - | - |
-| Lasso | - | - | - |
-| Random Forest | - | - | - |
-| XGBoost | - | - | - |
-| LightGBM | - | - | - |
+### Model Performance (XGBoost on 1M+ rows)
+The model was evaluated on a 20% holdout set:
+| Metric | Value |
+|-------|-----|
+| RMSE | 0.53 |
+| MAE | 0.35 |
+| R² | 0.79 |
 
-### Screenshots
+### 📸 Screenshots
 <!-- Add screenshots of your Streamlit app and key plots here -->
 
 ## 🔗 Links
 
-- **Dataset:** [House Prices - Kaggle](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
+- **Engine:** XGBoost / Scikit-Learn
 - **Internship:** DevelopersHub Corporation AI/ML Engineering
 
 ---
