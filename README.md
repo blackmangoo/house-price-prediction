@@ -94,7 +94,7 @@ The model was evaluated on a 20% holdout set:
 
 ### 📸 Screenshots
 <p align="center">
-  <img src="ss/ss.png" alt="Luxe Estate Dashboard" width="800">
+  <img src="ss/house_price.png" alt="Luxe Estate Dashboard" width="800">
 </p>
 
 ## 🔗 Links
